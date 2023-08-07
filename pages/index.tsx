@@ -1,13 +1,34 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import fs from "fs";
+import { GetStaticProps } from "next";
+import path from "path";
+import { CategoryFilter } from "../components/CategoryFilter";
+import { FlashCardList } from "../components/FlashCardList";
+import { FlashCard } from "../interfaces/FlashCard";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-)
+interface HomePageProps {
+  flashcards: FlashCard[];
+}
 
-export default IndexPage
+export default function HomePage({ flashcards }: HomePageProps) {
+  return (
+    <div className="container">
+      <CategoryFilter />
+      <FlashCardList />
+    </div>
+  );
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const filePath = path.join(process.cwd(), "flashcards.json");
+  const flashcards: FlashCard[] = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  const flashCardsFormatted = flashcards.map((flashcard) => ({
+    ...flashcard,
+    isShowingAnswer: false,
+  }));
+
+  return {
+    props: {
+      flashcards: flashCardsFormatted,
+    },
+  };
+};

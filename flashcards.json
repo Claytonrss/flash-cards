@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "category": "Ciências",
+    "question": "O que é a fotossíntese?",
+    "answer": "Fotossíntese é o processo realizado pelas plantas para que elas produzam energia necessária para a sua sobrevivência."
+  },
+  {
+    "id": 2,
+    "category": "Matemática",
+    "question": "O que é uma equação quadrática?",
+    "answer": "Uma equação quadrática é uma equação polinomial de segundo grau."
+  },
+  {
+    "id": 3,
+    "category": "Geografia",
+    "question": "Qual é a capital do Brasil?",
+    "answer": "A capital do Brasil é Brasília."
+  },
+  {
+    "id": 4,
+    "category": "História",
+    "question": "Quem descobriu o Brasil?",
+    "answer": "O Brasil foi descoberto por Pedro Álvares Cabral em 1500."
+  }
+]
